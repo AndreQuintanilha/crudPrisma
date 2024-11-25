@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+model Book {
+  id String @id @default(uuid())
+  title String
+  descricao String
+  autor String 
+
+  @@map("Books") // salva com esse nome
+}
+
+//npx prisma migrate dev - apos cada tabela criada, fazer esse comando para migar no banco de dados.
+
+model Gibi {
+  id String @id @default(uuid())
+  title String
+  descricao String
+  autor String 
+
+  @@map("Gibis") // salva com esse nome
+}
